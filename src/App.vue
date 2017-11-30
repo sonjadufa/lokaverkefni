@@ -1,10 +1,11 @@
 <template>
   <div id="app">
-    <input type="text" name="title" v-model="task">
+      <h1>Verkefnalisti</h1>
+    <input type="text" name="title" v-model="task" id="inputTag" placeholder="Hvað þarf að gera?" v-on:keyup.enter="taskInput">
     <button @click="taskInput">Bæta við</button>
       <div id="tasks" v-for="task in tasks">
-        <ul>
-          <label><input type="checkbox" name="checkbox" id="checkbox" @click="taskStatus"> {{ task.title }} </label>
+        <ul class="list">
+          <label><input type="checkbox" name="checkbox" id="checkbox"> {{ task.title }} </label>
           
         </ul>
       </div>
@@ -22,6 +23,7 @@ export default {
       
     }
   },
+
 
   mounted() {
     var self = this;
@@ -75,5 +77,47 @@ export default {
 </script>
 
 <style>
+
+    body{
+
+      padding-left: 30%;
+      padding-right: 30%;
+    }
+
+    ul{
+      display: flex;
+  /* Center everything inside .panel and li vertically */
+      align-items: center;
+  /* Distribute space evenly between the contents*/
+      justify-content: space-between;
+      list-style-type: none;
+      padding: 10px;
+      border-bottom: 1px solid #efefef;
+
+    }
+
+    #inputTag{
+      margin-top: 5%; 
+        padding-left: 10px;
+      width: 88%;
+      height: 20px;
+    }
+
+    button{
+      height: 26px;
+      border-radius: 5px;
+    }
+
+    button:hover{
+      background-color: pink;
+    }
+
+    h1{
+      text-align: center;
+      font-family: georgia;
+      text-decoration: underline;
+
+    }
+
 
 </style>
